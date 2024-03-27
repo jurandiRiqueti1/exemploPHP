@@ -14,13 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::get('/user/{nome}', function(string $nome){
-//     return 'Olá, ' . $nome;
-// });
+Route::redirect('/', '/users');
 
 Route::get('/users', [UserController::class, 'getAll']);
 Route::get('/user/{user}', [UserController::class, 'details']);
+Route::get('/users/create', [UserController::class, 'createView']);
+Route::post('/users/store', [UserController::class, 'store']);
+Route::put('/users/update/{user}', [UserController::class, 'update']);

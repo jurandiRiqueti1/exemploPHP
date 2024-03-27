@@ -1,6 +1,6 @@
 @extends('components.layout')
  
-@section('title', 'Detalhes do usuário')
+@section('title', 'Usuários')
  
 @section('content')
 <div>
@@ -14,16 +14,15 @@
                 </a> 
             </div>
         </div>
-    <form method="POST" action="/users/update/{{ $user->id }}">
+    <form method="POST" action="/users/store">
         @csrf
-        @method('PUT')
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" value="{{ $user->nome }}">
+            <input type="text" class="form-control" id="nome" name="nome">
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
+            <input type="email" class="form-control" id="email" name="email">
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
