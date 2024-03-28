@@ -11,7 +11,15 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
 
-    public function update($id) {
+    public function delete($id)
+    {
+        DB::table('users')->where('id','=', $id)->delete();
+
+        return redirect('/users');
+    }
+
+    public function update($id)
+    {
         
         $nome = $_POST['nome'];
         $email = $_POST['email'];

@@ -25,7 +25,12 @@
             <label for="email" class="form-label">E-mail</label>
             <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
         </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+    <form method="POST" action="/users/delete/{{ $user->id }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Excluir</button>
     </form>
 </div>
 @endsection
